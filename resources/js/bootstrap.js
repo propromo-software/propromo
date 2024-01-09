@@ -1,3 +1,8 @@
+import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
+setBasePath('/');
+
+import '@shoelace-style/shoelace/dist/components/icon/icon.js';
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: propromo-config
+data:
+  settings.ini: |
+    variables_order = "EGPCS"

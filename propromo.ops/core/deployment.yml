@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: propromo-core
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: propromo-core
+  template:
+    metadata:
+      labels:
+        app: propromo-core
+    spec:
+      containers:
+        - image: ghcr.io/propromo-software/propromo:v2024.10.17.02
+          name: propromo
+          env:
+            - name: APP_URL
+              value: https://it200250.cloud.htl-leonding.ac.at
+            - name: ASSET_URL
+              value: https://it200250.cloud.htl-leonding.ac.at
+            - name: APP_SERVICE_URL
+              value: https://it200250.cloud.htl-leonding.ac.at/propromo/rest
+            - name: APP_DEBUG
+              value: 'false'
+            - name: DB_HOST
+              value: propromo-postgresql
+            - name: DB_USERNAME
+              value: propromo
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: propromo-postgres
+                  key: password
+          volumeMounts:
+            - mountPath: /etc/php82/conf.d/settings.ini
+              subPath: settings.ini
+              name: config
+          ports:
+            - containerPort: 8080
+      volumes:
+        - name: config
+          configMap:
+            name: propromo-config

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: propromo-rest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: propromo-rest
+  template:
+    metadata:
+      labels:
+        app: propromo-rest
+    spec:
+      containers:
+        - name: propromo-rest
+          image: ghcr.io/propromo-software/propromo-rest-microservice
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - secretRef:
+                name: propromo-rest-secret

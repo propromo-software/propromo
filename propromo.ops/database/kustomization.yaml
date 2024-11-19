@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: student-it200250
+
+helmCharts:
+- name: postgresql
+  # -postgres suffix is automatic
+  releaseName: propromo
+  namespace: student-it200250
+  repo: https://charts.bitnami.com/bitnami
+  valuesFile: postgres.values.yml
+  version: 16.0.1
+- name: redis
+  releaseName: propromo-redis
+  namespace: student-it200250
+  repo: https://charts.bitnami.com/bitnami
+  valuesFile: redis.values.yml
+  version: 20.2.0

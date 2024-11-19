@@ -1,0 +1,7 @@
+image:
+  tag: '16.2.0'
+auth:
+  username: propromo
+  database: propromo
+  existingSecret: propromo-postgres
+

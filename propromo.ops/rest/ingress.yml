@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: propromo-rest-service
+spec:
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
+      name: http
+  selector:
+    app: propromo-rest
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: propromo-rest-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: it200250.cloud.htl-leonding.ac.at
+      http:
+        paths:
+          - path: /propromo/rest/(.*)$
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: propromo-rest-service
+                port:
+                  number: 80

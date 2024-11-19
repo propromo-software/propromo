@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: propromo-core
+spec:
+  project: propromo
+  source:
+    repoURL: https://github.com/propromo-software/propromo.ops
+    path: core
+    directory:
+      exclude: '{*.argo.yml,ingress.yml}'
+  destination:
+    name: leocloud
+    namespace: student-it200250

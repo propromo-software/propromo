@@ -77,76 +77,6 @@ At some point, as a client, the whole process becomes too frustrating, both in t
 -   Checkout Deployments and Releases
 -   Chat with the SCRUM master
 
-## Statistics
-
-[![GitHub license](https://img.shields.io/github/license/propromo-software/propromo.svg)](https://github.com/propromo-software/propromo/blob/main/LICENSE)
-[![GitHub contributors](https://img.shields.io/github/contributors/propromo-software/propromo.svg)](https://github.com/propromo-software/propromo/graphs/contributors)
-![GitHub watchers](https://img.shields.io/github/watchers/propromo-software/propromo?style=flat)
-[![GitHub stars](https://badgen.net/github/stars/propromo-software/propromo)](https://GitHub.com/propromo-software/propromo/stargazers/)
-[![GitHub forks](https://badgen.net/github/forks/propromo-software/propromo/)](https://GitHub.com/propromo-software/propromo/network/)
-
-[![GitHub issues](https://img.shields.io/github/issues/propromo-software/propromo.svg)](https://github.com/propromo-software/propromo/issues/)
-[![GitHub issues-closed](https://img.shields.io/github/issues-closed/propromo-software/propromo.svg?color=success)](https://GitHub.com/propromo-software/propromo/issues?q=is%3Aissue+is%3Aclosed)
-![GitHub Total Releases](https://badgen.net/github/releases/propromo-software/propromo)
-![GitHub release](https://img.shields.io/github/release/propromo-software/propromo?include_prereleases)
-[![Github all releases](https://img.shields.io/github/downloads/propromo-software/propromo/total.svg?include_prereleases)](https://GitHub.com/propromo-software/propromo/releases/)
-[![GitHub commits](https://badgen.net/github/commits/propromo-software/propromo)](https://GitHub.com/propromo-software/propromo/commit/)
-[![Commit Activity](https://img.shields.io/github/commit-activity/m/propromo-software/propromo)](https://github.com/propromo-software/propromo/commits/)
-[![GitHub latest commit](https://badgen.net/github/last-commit/propromo-software/propromo)](https://GitHub.com/propromo-software/propromo/commit/)
-
-## Development
-
-![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-![NodeJS](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-3069DE?style=for-the-badge&logo=kubernetes&logoColor=white)
-
-[![.github/workflows/ci.yml](https://github.com/propromo-software/propromo/actions/workflows/ci.yml/badge.svg)](https://github.com/propromo-software/propromo/actions/workflows/ci.yml)
-[![Continuous Deployment/Release - Website](https://github.com/propromo-software/propromo/actions/workflows/release.yml/badge.svg)](https://github.com/propromo-software/propromo/actions/workflows/release.yml)
-
-### Install Dependencies & Run
-
-```bash
-start.sh
-```
-
-```batch
-start.cmd
-```
-
-### One By One
-
-#### Database
-
-```bash
-docker-compose -f ./docker/postgres.yml up -d
-```
-
-#### Cache
-
-```bash
-docker-compose -f ./docker/redis.yml up -d
-```
-
-#### Website
-
-```bash
-php artisan serve --port=80
-```
-
-### Testing
-
-![PHP Code Coverage Badge](https://propromo-software.github.io/propromo/coverage.svg)
-
-```bash
-php ./vendor/bin/pest
-```
-
 ## Production
 
 [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zuzz.svg)](https://dub.sh/propromo-status)
@@ -167,5 +97,5 @@ php ./vendor/bin/pest
 ## Team
 
 <a href="https://github.com/propromo-software/propromo/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=propromo-software/propromo" />
+  <img src="https://contrib.rocks/image?repo=propromo-software/propromo.php" />
 </a>

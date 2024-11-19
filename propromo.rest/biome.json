@@ -1,0 +1,19 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.6.1/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"style": {
+				"noNonNullAssertion": "off" 
+			}
+		}
+	},
+	"formatter": {
+		"enabled": true,
+		"ignore": ["src/v1/adapters/github/graphql.ts", "src/v1/adapters/github/scopes.ts", "main-drizzle", "next-drizzle"]
+	}
+}

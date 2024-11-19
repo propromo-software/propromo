@@ -1,0 +1,40 @@
+name: Sync Database Schemas
+
+on:
+  schedule:
+    - cron: "*/10 * * * *" # check every 10 minutes
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    env:
+      DATABASE_MAIN_HOST: ${{ secrets.DATABASE_MAIN_HOST }}
+      DATABASE_NEXT_HOST: ${{ secrets.DATABASE_NEXT_HOST }}
+
+    steps:
+      # https://github.com/drizzle-team/drizzle-orm/issues/2239
+      - name: Yarn setup
+        uses: DerYeger/yarn-setup-action@master # not working using the latest tag...
+        with:
+          node-version: 18
+        
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Pull Schemas
+        run: |
+          yarn run main:pull
+          yarn run next:pull
+          npx @biomejs/biome format --write ./main-drizzle
+          npx @biomejs/biome format --write ./next-drizzle
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+
+      - name: Log Pull Request Info
+        if: ${{ steps.cpr.outputs.pull-request-number }}
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"

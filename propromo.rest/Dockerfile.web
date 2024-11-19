@@ -1,0 +1,22 @@
+FROM oven/bun:1.1.6-debian
+
+WORKDIR /app
+
+COPY package.json .
+COPY bun.lockb .
+
+RUN bun install --production
+
+# .env is only copied for development/testing (not available in remote repo => not copied in production), production has it's own way of setting environment variables for the application
+COPY **.env .env
+# remove if there and empty
+RUN [ -f .env ] && [ ! -s .env ] && rm .env || true
+
+COPY src src
+COPY static static
+COPY tsconfig.json .
+
+ENV NODE_ENV production
+CMD ["bun", "src/index.ts"]
+
+EXPOSE 80

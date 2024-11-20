@@ -1,0 +1,15 @@
+{
+  "deno.enablePaths": [
+    "./"
+  ],
+  "deno.enable": true,
+  "editor.inlayHints.enabled": "off",
+  "cSpell.words": [
+    "hget",
+    "hkeys",
+    "hset",
+    "lrange",
+    "ltrim",
+    "rpush"
+  ]
+}

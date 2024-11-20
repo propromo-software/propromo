@@ -1,0 +1,8 @@
+:root {
+    [data-theme='light'] {
+        .inverted-colors {
+            -webkit-filter: invert(100%);
+            filter: invert(100%);
+        }
+    }
+}

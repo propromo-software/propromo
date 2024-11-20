@@ -1,0 +1,133 @@
+name: Propromo
+
+# VERSIONS are needed, build fails, if they are not specified :)
+# https://stackoverflow.com/questions/43111501/the-bundles-info-plist-does-not-contain-a-cfbundleversion-key-or-its-value-is-n
+settings:
+  GENERATE_INFOPLIST_FILE: YES
+  CODE_SIGNING_ALLOWED: NO # YES
+  MARKETING_VERSION: 0.0.0
+  CURRENT_PROJECT_VERSION: 0.0.0
+  # DEVELOPMENT_TEAM: Propromo
+options:
+  bundleIdPrefix: com.propromo
+packages:
+  Alamofire:
+    url: https://github.com/Alamofire/Alamofire
+    majorVersion: 5.5.0
+    settings:
+      # Disable stripping of debug symbols during the copy phase
+      COPY_PHASE_STRIP: NO
+      # Disable stripping of debug symbols during the per-arch copy phase
+      PER_ARCH_COPY_PHASE_STRIP: NO
+      # Embed Swift standard libraries in the bundle
+      ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+      # Disable code signing for this package (not recommended for production)
+      ALLOW_TS_CODE_SIGNING: NO
+      # Set the Swift optimization level to none (debug mode)
+      # SWIFT_OPTIMIZATION_LEVEL: -Onone
+      # Set the active compilation conditions to Debug
+      # SWIFT_ACTIVE_COMPILATION_CONDITIONS: Debug
+      # Disable bundle loading (not recommended for production)
+      # SWIFT_DISABLE_BUNDLE_LOADING: NO
+  Starscream:
+    url: https://github.com/daltoniam/Starscream
+    majorVersion: 4.0.8
+    settings:
+      # Disable stripping of debug symbols during the copy phase
+      COPY_PHASE_STRIP: NO
+      # Disable stripping of debug symbols during the per-arch copy phase
+      PER_ARCH_COPY_PHASE_STRIP: NO
+      # Embed Swift standard libraries in the bundle
+      ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+      # Disable code signing for this package (not recommended for production)
+      ALLOW_TS_CODE_SIGNING: NO
+      # Set the Swift optimization level to none (debug mode)
+      # SWIFT_OPTIMIZATION_LEVEL: -Onone
+      # Set the active compilation conditions to Debug
+      # SWIFT_ACTIVE_COMPILATION_CONDITIONS: Debug
+      # Disable bundle loading (not recommended for production)
+      # SWIFT_DISABLE_BUNDLE_LOADING: NO
+targets:
+  Propromo:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+
+    info:
+        path: ./Propromo-Info.plist
+        properties:
+            NSAppTransportSecurity:
+                NSAllowsArbitraryLoads: true
+            UILaunchScreen:
+                UIColorName: white
+
+    sources:
+      - path: ./core/features
+        group: propromo
+      - path: ./core/resources
+        group: propromo
+      - path: ./core/services
+        group: propromo
+      - path: ./core/main
+        group: propromo
+
+    dependencies:
+      - package: Alamofire
+      - package: Starscream
+
+    # Link with its target to run with cmd+u
+    scheme:
+      gatherCoverageData: true
+      testTargets:
+        - name: UnitTests
+          parallelizable: true
+          randomExecutionOrder: true
+
+    scheme:
+      gatherCoverageData: true
+      testTargets:
+        - name: UiTests
+          parallelizable: true
+          randomExecutionOrder: true
+
+  UnitTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: ./core/tests/unit
+        group: propromo
+
+    # Link with ./core target
+    dependencies:
+      - target: Propromo
+      
+    # Create a new scheme that will be linked and configured for test purposes
+    scheme:
+      gatherCoverageData: true
+      testTargets:
+        - name: UnitTests
+          parallelizable: true
+          randomExecutionOrder: true
+
+  UiTests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: ./core/tests/ui
+        group: propromo
+
+    # Link with ./core target
+    dependencies:
+      - target: Propromo
+      
+    # Create a new scheme that will be linked and configured for test purposes
+    scheme:
+      gatherCoverageData: true
+      testTargets:
+        - name: UiTests
+          parallelizable: true
+          randomExecutionOrder: true
+
+# https://betterprogramming.pub/generating-xcodeprojs-with-xcodegen-7d291cfc2f46
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/Usage.md
+# https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md#options

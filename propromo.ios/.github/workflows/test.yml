@@ -1,0 +1,62 @@
+name: propromo.ios CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    # Use macos-latest and trust this action to always work
+    # This because GitHub deprecate old environments, so if you want your CI to continue to work in 5 years you need to use latest
+    # This makes specifying specific xcode versions problematic however, we haven’t got a good story for this yet.
+
+    strategy:
+      matrix:
+        platform:
+          - iOS
+        xcode:
+          - ^15
+        # https://flatgithub.com/mxcl/.github/?filename=versions.json&sha=7f6f9803a64ce8a542970f9f04eb1b39b8b76946
+        # https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md#xcode
+        #swift:
+        #  - ^4
+        #  - ^5
+        scheme:
+          - UnitTests
+          - UiTests
+        
+    steps:
+    - name: Info
+      run: echo "Test Workflow - IOS App"
+
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Install Dependencies
+      run: |
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        brew install xcodegen
+
+    - name: Generate Project
+      run: xcodegen generate
+
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ matrix.xcode }}
+
+    # Versions:
+    # https://xcodereleases.com/
+    # https://developer.apple.com/support/xcode/
+    - name: Xcode Tests
+      uses: mxcl/xcodebuild@v2
+      with:
+        #xcode: ${{ matrix.xcode }}
+        platform: ${{ matrix.platform }}
+        # swift: ${{ matrix.swift }}
+        action: test # `build`
+        code-coverage: true # default = `false`
+        warnings-as-errors: false # default = `false`
+        scheme: ${{ matrix.scheme }}

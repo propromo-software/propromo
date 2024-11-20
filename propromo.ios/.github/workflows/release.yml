@@ -1,0 +1,69 @@
+name: propromo.ios CD
+
+on:
+  workflow_run:
+    workflows: ["propromo.ios CI"]
+    types:
+      - completed
+
+permissions: write-all
+
+jobs:
+  release:
+    runs-on: macos-latest
+
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Info
+        run: echo "Release Workflow - IOS App"
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew install xcodegen
+
+      - name: Generate Project
+        run: xcodegen generate
+
+      - name: Xcode Setup
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ^15
+
+      - name: Xcode Build
+        uses: mxcl/xcodebuild@v2
+        with:
+          platform: iOS
+          xcode: ^15
+          action: build
+          code-coverage: false
+          scheme: Propromo
+          # warnings-as-errors: false
+          # configuration: release
+
+      - name: Generate release tag
+        id: generate_release_tag
+        uses: amitsingh-007/next-release-tag@v6.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag_prefix: "v"
+          tag_template: "yyyy.mm.dd.i"
+
+      - name: Create Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag: ${{ steps.generate_release_tag.outputs.next_release_tag }}
+          name: Release ${{ github.sha }}
+          body: Release for commit '${{ github.event.workflow_run.head_commit.message }}'
+          draft: false
+          prerelease: true
+          makeLatest: true
+          # files: |
+          #   xxx

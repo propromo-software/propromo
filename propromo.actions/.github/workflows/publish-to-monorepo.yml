@@ -56,7 +56,7 @@ jobs:
 
           message="${{ github.event.head_commit.message }}"
           # use regex to replace ` #xx` with ` repo#xx`
-          message="$(echo "$message" | perl -pi -e 's/(?<=\W)(#|GH-)(\d+)(?=\W|$)/'"$REPO_NAME"'#$2/gm')"
+          message="$(echo "$message" | perl -pi -e 's/(?<=\W)(#|GH-)(\d+)(?=\W|$)/'"${{ github.repository_owner }}\/$REPO_NAME"'#$2/gm')"
 
           git commit -m "[$REPO_NAME] $message" -m "Mirrored from ${{ github.event.head_commit.url }}"
 

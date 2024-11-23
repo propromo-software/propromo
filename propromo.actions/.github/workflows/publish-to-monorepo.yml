@@ -1,0 +1,74 @@
+on:
+  workflow_call:
+    secrets:
+      MONOREPO_SSH_DEPLOY_KEY:
+        required: true
+  push:
+    branches: [main]
+
+jobs:
+  publish:
+    name: Publish to monorepo
+    runs-on: ubuntu-latest
+    env:
+      REPO_NAME: ${{ github.event.repository.name }}
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: poly
+
+      - name: Checkout Monorepo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ssh-key: ${{ secrets.MONOREPO_SSH_DEPLOY_KEY }}
+          repository: propromo-software/propromo
+          path: mono
+
+      - name: Copy to mono
+        run: |
+          yes | cp poly/. "mono/$REPO_NAME/" -rfp
+          rm -rf "mono/$REPO_NAME/.git"
+
+      - name: Setup ssh
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.MONOREPO_SSH_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no"
+
+      - name: Install lucky-commit
+        uses: baptiste0928/cargo-install@v3
+        with:
+          crate: lucky_commit
+          args: --no-default-features
+          git: https://github.com/not-an-aardvark/lucky-commit
+          tag: v2.2.3
+
+      - name: Commit and push
+        working-directory: mono
+        run: |
+          git add "$REPO_NAME/"
+          git config --global user.email "${{ github.event.head_commit.author.email }}"
+          git config --global user.name "${{ github.event.head_commit.author.name }}"
+
+          message="${{ github.event.head_commit.message }}"
+          # use regex to replace ` #xx` with ` repo#xx`
+          message="$(echo "$message" |  sed -r 's/ #([[:digit:]]+)/ '"$REPO_NAME"'#\1/')"
+
+          git commit -m "[$REPO_NAME] $message" -m "Mirrored from ${{ github.event.head_commit.url }}"
+
+      - name: Rewrite using lucky_commit
+        timeout-minutes: 2
+        continue-on-error: true
+        working-directory: mono
+        run: |
+          sha="$(echo "${{ github.event.head_commit.id }}" | cut -c1-7)"
+          echo "Rewriting to $sha"
+          lucky_commit "$sha"
+
+      - name: Push
+        working-directory: mono
+        run: git push

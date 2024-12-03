@@ -54,7 +54,7 @@ jobs:
           git config --global user.email "${{ github.event.head_commit.author.email }}"
           git config --global user.name "${{ github.event.head_commit.author.name }}"
 
-          message="${{ github.event.head_commit.message }}"
+          message='${{ github.event.head_commit.message }}'
           # use regex to replace ` #xx` with ` repo#xx`
           message="$(echo "$message" | perl -pi -e 's/(?<=\W)(#|GH-)(\d+)(?=\W|$)/'"${{ github.repository_owner }}\/$REPO_NAME"'#$2/gm')"
 

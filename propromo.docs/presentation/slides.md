@@ -22,8 +22,17 @@ transition: slide-left
 mdc: true
 ---
 
+# Propromo
+
+> Project Progress Monitoring
+
 ---
 src: ./pages/intro.md
+hide: false
+---
+
+---
+src: ./pages/problem.md
 hide: false
 ---
 
@@ -39,5 +48,10 @@ hide: false
 
 ---
 src: ./pages/kpis.md
+hide: false
+---
+
+---
+src: ./pages/thanks.md
 hide: false
 ---

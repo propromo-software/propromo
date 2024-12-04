@@ -4,36 +4,46 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+
       - name: Setup @antfu/ni
+        working-directory: presentation
         run: npm i -g @antfu/ni
+
       - name: Install dependencies
+        working-directory: presentation
         run: nci
+
       - name: Build
-        run: nr build --base /${{github.event.repository.name}}/presentation
-      - name: Ensure dist directory exists
-        run: mkdir -p presentation/dist
+        working-directory: presentation
+        run: nr build
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: presentation/dist
-          name: github-pages
-          retention-days: 1
+
   deploy:
     environment:
       name: github-pages

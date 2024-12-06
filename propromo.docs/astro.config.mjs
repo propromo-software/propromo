@@ -16,6 +16,7 @@ export default defineConfig({
         github: "https://github.com/propromo-software/propromo",
       },
       sidebar: [
+        { label: 'About', link: '/about' },
         {
           label: "Guides",
           items: [

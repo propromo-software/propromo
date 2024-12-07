@@ -1,10 +1,14 @@
+import vercel from "@astrojs/vercel/serverless";
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-import vercel from "@astrojs/vercel/serverless";
+import starlightBlog from "starlight-blog";
 
 // https://astro.build/config
+// https://docs.astro.build/en/guides/environment-variables/#default-environment-variables
+const IS_DEV = import.meta.env.DEV;
+
 export default defineConfig({
-  site: "https://propromo-docs.vercel.app",
+  site: IS_DEV ? "http://localhost:4321" : "https://propromo-docs.vercel.app",
   integrations: [
     starlight({
       title: "Propromo Docs",
@@ -16,7 +20,7 @@ export default defineConfig({
         github: "https://github.com/propromo-software/propromo",
       },
       sidebar: [
-        { label: 'About', link: '/about' },
+        { label: "About", link: "/about" },
         {
           label: "Guides",
           items: [
@@ -49,7 +53,18 @@ export default defineConfig({
           },
         },
       ],
-      plugins: [],
+      plugins: [
+        starlightBlog({
+          authors: {
+            jonasfroeller: {
+              name: "Jonas Fröller",
+              title: "Developer @Propromo",
+              picture: "https://avatars.githubusercontent.com/u/121523551?v=4",
+              url: "https://jonasfroeller.is-a.dev",
+            },
+          },
+        }),
+      ],
       customCss: ["./src/styles/custom.css"],
     }),
   ],

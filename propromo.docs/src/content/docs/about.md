@@ -10,4 +10,4 @@ description: Get started building your docs site with Starlight.
   Your browser does not support the video tag.
 </video>
 
-<a href="https://propromo-software.github.io/propromo.docs" target="_blank">Learn more</a>.
+<a href="https://propromo.netlify.app" target="_blank">Learn more</a>.

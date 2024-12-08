@@ -2,6 +2,7 @@ import vercel from "@astrojs/vercel/serverless";
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
+import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
 // https://docs.astro.build/en/guides/environment-variables/#default-environment-variables
@@ -67,6 +68,7 @@ export default defineConfig({
       ],
       customCss: ["./src/styles/custom.css"],
     }),
+    alpinejs(),
   ],
   output: "hybrid",
   adapter: vercel({

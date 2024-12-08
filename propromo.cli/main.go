@@ -1,6 +1,6 @@
 package main
 
-import "propromo.cli/cmd"
+import "propromo/cmd"
 
 func main() {
 	cmd.Execute()

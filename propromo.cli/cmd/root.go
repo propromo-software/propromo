@@ -2,10 +2,10 @@ package cmd
 
 import (
 	"fmt"
-	"os"
-
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"os"
+	github "propromo/cmd/github"
 )
 
 var cfgFile string
@@ -13,7 +13,7 @@ var cfgFile string
 var rootCmd = &cobra.Command{
 	Use:   "propromo-cli",
 	Short: "A CLI that integrates with propromo",
-	Long: `propromo-cli is a CLI that integrates with your VCS. It can sync milestones and labels between repositories.`,
+	Long:  `propromo-cli is a CLI that integrates with your VCS. It can sync milestones and labels between repositories.`,
 }
 
 func Execute() {
@@ -27,6 +27,8 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (defaults are $XDG_CONFIG_HOME/propromo-cli.yml and $HOME/propromo-cli.yml)")
+
+	rootCmd.AddCommand(github.GithubCmd)
 }
 
 func initConfig() {

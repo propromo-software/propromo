@@ -1,0 +1,151 @@
+---
+title: A guide on GitHub-Projects.
+date: 2024-12-12
+lastUpdated: 2024-12-12
+tags: [github, github-projects-v2]
+excerpt: How to master GitHub Projects?
+cover:
+  alt: Template Project Preview
+  image: ../../../assets/blog/a-guide-on-github-projects/default-view.png
+featured: false
+draft: false
+---
+
+import { LinkCard, Aside, LinkButton, Steps, Icon, Badge } from '@astrojs/starlight/components';
+
+<Aside type="caution">Dieser Guide ist nur für <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects" target="_blank">GitHub ProjectsV2!</a></Aside>
+
+<Steps>
+
+1. ## Erstelle ein ProjectV2
+
+    Mit unserem SCRUM-Template,
+
+    <LinkCard
+      title="Propromo's GitHub SCRUM Template"
+      href="/blog/how-to-use-propromos-github-scrum-template-project"
+      description="How to use Propromo's GitHub SCRUM Template Project?"
+    />
+
+    oder mit einem GitHub-Template unter<br />`github.com/<username>?tab=projects` oder `github.com/orgs/<username>/projects`.
+    ![project-templates](../../../assets/blog/a-guide-on-github-projects/project-templates.png)
+    
+    ---
+
+    oder migriere von ProjectV1:
+
+    <LinkButton
+      href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic"
+      target="_blank"
+      variant="secondary"
+      icon="external"
+      iconPlacement="start"
+    >
+      GitHub Dokumentation.
+    </LinkButton>
+
+2. ## Standard-Ansicht
+
+    Du bist jetzt auf `github.com/<orgs|users>/<username>/projects/<id>`  
+    und siehst hier deine Standard-Ansicht.
+
+    <a href="https://github.com/orgs/propromo-software/projects/1/views/1" target="_blank">
+        ![default-view](../../../assets/blog/a-guide-on-github-projects/default-view.png)
+    </a>
+
+    > Hier kannst du auch den Typen der **Ansicht**- wie auch einige sortierungs- und anzeige-Optionen einstellen.
+
+    ![change-type-sort-and-fields](../../../assets/blog/a-guide-on-github-projects/change-type-sort-and-fields.png)
+    
+    > Und [**filtern**](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).
+
+    ![filter](../../../assets/blog/a-guide-on-github-projects/filter.png)
+
+    <Aside type="note">
+      Es gibt bei GitHub-ProjectsV2 eine Limitierung für die Anzahl an angezeigten Sprints.  
+      Das ist ziemlich nervig, wenn man eine Übersicht aller Sprints erstellen will.  
+      Um diese zu umgehen, kann man aber einfach einen Sprint exkludieren, der nicht existiert.  
+      Wie etwa: `-sprint:"dieshierwirdniemalseinsprintnamesein"`.
+    </Aside>
+
+    > Mittlerweile gibt es auch **Statistiken** zu GitHub Projects.
+
+    ![insights](../../../assets/blog/a-guide-on-github-projects/insights.png)
+
+    `github.com/<orgs|users>/<username>/projects/<id>/insights`
+    ![insight-settings](../../../assets/blog/a-guide-on-github-projects/insight-settings.png)
+    ![statistics](../../../assets/blog/a-guide-on-github-projects/statistics.png)
+
+    > Settings - Erstellen von eigenen **Issue Felder**n
+
+    `github.com/<orgs|users>/<username>/projects/<id>/settings`
+    ![settings](../../../assets/blog/a-guide-on-github-projects/settings.png)
+
+    > &nbsp;&nbsp;&nbsp;&nbsp; Sprint
+
+    ![sprint-settings](../../../assets/blog/a-guide-on-github-projects/sprint-settings.png)
+
+    > &nbsp;&nbsp;&nbsp;&nbsp; Status
+
+    ![status-settings](../../../assets/blog/a-guide-on-github-projects/status-settings.png)
+
+    *Ergebnis:*
+    ![sprint-field](../../../assets/blog/a-guide-on-github-projects/sprint-field.png)
+
+    > **Workflows**: Wie man Issues automatisch durch Aktionen ändern kann.
+
+    ![workflows](../../../assets/blog/a-guide-on-github-projects/workflows.png)
+
+    `github.com/<orgs|users>/<username>/projects/<id>/workflows`
+    ![workflow-settings](../../../assets/blog/a-guide-on-github-projects/workflow-settings.png)
+
+3. ## Wie organisieren wir unser GitHub-Project?
+
+    Wir vergeben <Badge text="userstory" variant="note" /> und <Badge text="task" variant="success" /> Labels an unsere Issues, damit wir sie schneller auseinanderkennen können.  
+    Zusätzlich dazu, obwohl wir ein eigenes Sprint Feld für die Issues erstellt haben, vergeben wir auch ein Sprint-Makerl (`sprint-xxx`),  
+    um nicht den Überblick in der Issue-Übersicht zu verlieren, wo das Sprint-Feld nicht angezeigt wird.
+
+    `github.com/<username>/<repository-name>/issues`
+    ![issues](../../../assets/blog/a-guide-on-github-projects/issues.png)
+
+    `github.com/<username>/<repository-name>/labels`
+    ![labels](../../../assets/blog/a-guide-on-github-projects/labels.png)
+
+    `github.com/<username>/<repository-name>/milestones`
+    ![milestones](../../../assets/blog/a-guide-on-github-projects/milestones.png)
+
+    Da Meilensteine und Labels leider nur pro Repository in GitHub verwaltet werden können,  
+    empfehlen wir unser [propromo.cli](https://github.com/propromo-software/propromo.cli), um sie zwischen Repositories zu synchronisieren.
+
+</Steps>
+
+<div>
+    <LinkButton
+      style="display: flex; margin-left: auto; width: fit-content;"
+      href="https://docs.github.com/de/issues/planning-and-tracking-with-projects"
+      target="_blank"
+      variant="primary"
+      icon="github"
+      iconPlacement="start"
+    >
+      Mehr erfahren.
+    </LinkButton>
+    <LinkButton
+      style="display: flex; margin-left: auto; width: fit-content;"
+      href="https://github.blog/changelog/label/projects"
+      target="_blank"
+      variant="primary"
+      icon="github"
+      iconPlacement="start"
+    >
+      ProjectsV2 Changelog.
+    </LinkButton>
+</div>
+
+---
+
+<LinkCard
+  title="Propromo's GitHub SCRUM Template"
+  href="/blog/how-to-use-propromos-github-scrum-template-project"
+  description="How to use Propromo's GitHub SCRUM Template Project?"
+/>

@@ -3,6 +3,8 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import alpinejs from "@astrojs/alpinejs";
+import markdownItAttrs from 'markdown-it-attrs';
+import rehypeExternalLinks from 'rehype-external-links';
 
 // https://astro.build/config
 // https://docs.astro.build/en/guides/environment-variables/#default-environment-variables
@@ -76,4 +78,14 @@ export default defineConfig({
       enabled: true,
     },
   }),
+  markdown: {
+    remarkPlugins: [],
+    rehypePlugins: [
+      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
+    ],
+    extendDefaultPlugins: true,
+    setup: ({ markdown }) => {
+      markdown.use(markdownItAttrs);
+    },
+  },
 });

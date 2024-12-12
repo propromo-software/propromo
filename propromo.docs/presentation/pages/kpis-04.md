@@ -3,7 +3,7 @@ transition: slide-up
 level: 3
 ---
 
-# <span class="flex justify-between">KPIs [4/4]</span>
+# <span class="flex justify-between"><span>KPI<span class="text-2xl mt-auto">s</span></span> [4/4]</span>
 
 > Key Performance Indicators
 

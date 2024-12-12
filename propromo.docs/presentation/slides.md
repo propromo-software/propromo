@@ -120,6 +120,11 @@ hide: false
 ---
 
 ---
+src: ./pages/video.md
+hide: false
+---
+
+---
 src: ./pages/thanks.md
 hide: false
 ---

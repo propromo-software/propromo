@@ -1,4 +1,4 @@
-# <span class="flex justify-between">KPIs [3/4]</span>
+# <span class="flex justify-between"><span>KPI<span class="text-2xl mt-auto">s</span></span> [3/4]</span>
 
 > Key Performance Indicators
 

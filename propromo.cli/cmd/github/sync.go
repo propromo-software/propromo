@@ -16,6 +16,7 @@ var targets []string
 
 func init() {
 	syncCmd.AddCommand(milestonesCmd)
+	syncCmd.AddCommand(labelsCmd)
 }
 
 func getToken() string {

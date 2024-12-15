@@ -21,6 +21,10 @@ var milestonesCmd = &cobra.Command{
 
 		milestones, err := github.ListGitHubMilestones(sourceRepo)
 		cobra.CheckErr(err)
+		if len(milestones) == 0 {
+			cmdutils.Logger.Warn("No Milestones in source repo found, aborting sync.")
+			return
+		}
 
 		repos := make([]utils.GitRepo, len(targets))
 		for i, target := range targets {

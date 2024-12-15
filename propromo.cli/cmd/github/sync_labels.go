@@ -21,6 +21,10 @@ var labelsCmd = &cobra.Command{
 
 		labels, err := github.ListGitHubLabels(sourceRepo)
 		cobra.CheckErr(err)
+		if len(labels) == 0 {
+			cmdutils.Logger.Warn("No Labels in source repo found, aborting sync.")
+			return
+		}
 
 		repos := make([]utils.GitRepo, len(targets))
 		for i, target := range targets {

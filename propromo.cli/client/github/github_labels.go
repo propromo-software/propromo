@@ -6,8 +6,9 @@ import (
 	"propromo/utils"
 )
 
-func ListGitHubLabels(repo utils.GitRepo) ([]*github.Label, error) {
+func ListGitHubLabels(token *string, repo utils.GitRepo) ([]*github.Label, error) {
 	ctx := context.Background()
+	client := NewGitHubClientWithOptionalToken(token)
 
 	labels, _, err := client.Issues.ListLabels(ctx, repo.Owner, repo.Repository, nil)
 	return labels, err
@@ -15,7 +16,7 @@ func ListGitHubLabels(repo utils.GitRepo) ([]*github.Label, error) {
 
 func CreateGitHubLabel(token string, repo utils.GitRepo, label *github.Label) (*github.Label, error) {
 	ctx := context.Background()
-	client := github.NewClient(nil).WithAuthToken(token)
+	client := NewGitHubClient(token)
 
 	label, _, err := client.Issues.CreateLabel(ctx, repo.Owner, repo.Repository, label)
 	return label, err

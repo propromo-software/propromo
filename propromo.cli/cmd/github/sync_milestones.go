@@ -14,12 +14,13 @@ var milestonesCmd = &cobra.Command{
 	Use:   "milestones",
 	Short: "Sync milestones from one repo to others",
 	Run: func(command *cobra.Command, args []string) {
+		token := getToken()
 		fmt.Println("Syncing from", source, "to", targets)
 
 		sourceRepo, err := utils.ParseGitRepo(source)
 		cobra.CheckErr(err)
 
-		milestones, err := github.ListGitHubMilestones(sourceRepo)
+		milestones, err := github.ListGitHubMilestones(&token, sourceRepo)
 		cobra.CheckErr(err)
 		if len(milestones) == 0 {
 			cmdutils.Logger.Warn("No Milestones in source repo found, aborting sync.")
@@ -33,7 +34,6 @@ var milestonesCmd = &cobra.Command{
 			repos[i] = repo
 		}
 
-		token := getToken()
 		for _, repo := range repos {
 			for _, milestone := range milestones {
 				_, err := github.CreateGitHubMilestone(token, repo, &githubmodel.Milestone{

@@ -6,8 +6,9 @@ import (
 	"propromo/utils"
 )
 
-func ListGitHubMilestones(repo utils.GitRepo) ([]*github.Milestone, error) {
+func ListGitHubMilestones(token *string, repo utils.GitRepo) ([]*github.Milestone, error) {
 	ctx := context.Background()
+	client := NewGitHubClientWithOptionalToken(token)
 
 	milestones, _, err := client.Issues.ListMilestones(ctx, repo.Owner, repo.Repository, nil)
 	return milestones, err
@@ -15,7 +16,7 @@ func ListGitHubMilestones(repo utils.GitRepo) ([]*github.Milestone, error) {
 
 func CreateGitHubMilestone(token string, repo utils.GitRepo, milestone *github.Milestone) (*github.Milestone, error) {
 	ctx := context.Background()
-	client := github.NewClient(nil).WithAuthToken(token)
+	client := NewGitHubClient(token)
 
 	milestones, _, err := client.Issues.CreateMilestone(ctx, repo.Owner, repo.Repository, milestone)
 	return milestones, err

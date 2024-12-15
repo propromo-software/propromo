@@ -14,12 +14,14 @@ var labelsCmd = &cobra.Command{
 	Use:   "labels",
 	Short: "Sync labels from one repo to others",
 	Run: func(command *cobra.Command, args []string) {
+		token := getToken()
+
 		fmt.Println("Syncing from", source, "to", targets)
 
 		sourceRepo, err := utils.ParseGitRepo(source)
 		cobra.CheckErr(err)
 
-		labels, err := github.ListGitHubLabels(sourceRepo)
+		labels, err := github.ListGitHubLabels(&token, sourceRepo)
 		cobra.CheckErr(err)
 		if len(labels) == 0 {
 			cmdutils.Logger.Warn("No Labels in source repo found, aborting sync.")
@@ -33,7 +35,6 @@ var labelsCmd = &cobra.Command{
 			repos[i] = repo
 		}
 
-		token := getToken()
 		for _, repo := range repos {
 			for _, label := range labels {
 				_, err := github.CreateGitHubLabel(token, repo, &githubmodel.Label{

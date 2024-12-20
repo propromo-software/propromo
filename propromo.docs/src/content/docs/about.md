@@ -1,6 +1,6 @@
 ---
 title: What is Propromo?
-description: Get started building your docs site with Starlight.
+description: "Project Progress Monitoring". Share your project progress with clients. Your client wants to be involved. Propromo makes it possible.
 ---
 
 ## About Propromo

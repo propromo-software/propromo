@@ -1,6 +1,7 @@
 ---
 title: What is Propromo?
-description: "Project Progress Monitoring". Share your project progress with clients. Your client wants to be involved. Propromo makes it possible.
+description: |
+  "Project Progress Monitoring." Share your project progress with clients. Your client wants to be involved. Propromo makes it possible.
 ---
 
 ## About Propromo

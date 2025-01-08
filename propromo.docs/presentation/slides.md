@@ -1,6 +1,11 @@
 ---
 theme: default
 
+addons:
+  - slidev-addon-rabbit
+rabbit:
+  slideNum: true
+
 title: Presentation
 titleTemplate: '%s | Propromo'
 author: Jonas Fröller

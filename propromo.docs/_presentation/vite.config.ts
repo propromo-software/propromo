@@ -8,6 +8,13 @@ export default defineConfig({
         server.middlewares.use((req, res, next) => {
           // Determine the protocol (http or https)
           const protocol = req.headers['x-forwarded-proto'] || 'http'; // Fallback to 'http' if not set
+
+          // Ensure req.url is defined before using it
+          if (!req.url) {
+            next(); // If URL is undefined, skip the middleware
+            return;
+          }
+
           const url = new URL(req.url, `${protocol}://${req.headers.host}`);
           
           // Regular expression to match paths like /1, /123, or / with or without a query string

@@ -1,19 +1,43 @@
 ---
-src: ./kpis-01.md
-hide: false
+transition: slide-up
+level: 3
 ---
 
----
-src: ./kpis-02.md
-hide: false
----
+# <span class="flex justify-between"><span>KPI<span class="text-2xl mt-auto">s</span></span></span>
 
----
-src: ./kpis-03.md
-hide: false
----
+> Key Performance Indicators
 
----
-src: ./kpis-04.md
-hide: false
----
+<div class="mb-6"></div>
+
+1. **Projektinformationen**
+   * Sourcecode URL, Team, Projektbeschreibung, Versionen- und Versionsfrequenz, Sicherheitsrisiken
+
+2. **Projektaktivität**
+   * Team Performance:
+     * Commits,
+     * Pull Requests & Issues,
+     * Sprints & Meilensteine pro Zeiteinheit
+
+3. **Projektfortschritt**
+   * Prozentsatz der abgeschlossenen- und ausstehenden Issues (, Meilensteine & Sprints).
+
+<style scoped>
+    p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+</style>
+
+<!--
+1. **Projektinformationen**
+   * Team (Mitgliederanzahl und Projektleiter), Sourcecode URL, README, Versionsfrequenz (Builds, Releases, Deployments, Packages), Sicherheitsrisiken (Anzahl und Schweregrad bekannter Sicherheitsprobleme)
+
+2. **Projektaktivität** 
+   * Team Performance:
+     * Commits,
+     * Pull Requests & Issues,
+     * Sprints & Meilensteine pro Zeiteinheit
+
+3. **Projektfortschritt**
+   * Prozentsatz der abgeschlossenen- und ausstehenden Issues (, Meilensteine & Sprints).
+-->

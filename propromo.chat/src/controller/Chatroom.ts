@@ -20,9 +20,9 @@ export class ChatRoom {
     messagesKey: string;
 
     async createMessage(email: string, message: string) {
-        const NAMESPACE_URL = new TextEncoder().encode("6ba7b810-9dad-11d1-80b4-00c04fd430c8");
+        const NAMESPACE = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
         const messageBytes = new TextEncoder().encode(message);
-        const messageId = await generate(NAMESPACE_URL, messageBytes);
+        const messageId = await generate(NAMESPACE, messageBytes);
         const messageData = {
             email,
             timestamp: new Date().toISOString(),
@@ -55,7 +55,7 @@ export class ChatRoom {
             const messageId = key.split(':').pop() || '';
 
             if (messageJson) {
-                const messageData = JSON.parse(messageJson);
+                const messageData = JSON.parse(JSON.stringify(messageJson));
                 messages.push({ id: messageId, ...messageData });
             }
         }

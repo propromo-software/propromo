@@ -7,7 +7,7 @@ description: |
 ## About Propromo
 
 <a href="/video/propromo.mp4" download>
-  <video width="1920" height="1080" autoplay loop muted poster="/img/favicon.png" style="object-fit: cover;">
+  <video width="1920" height="1080" autoplay loop muted poster="/img/thumbnail.png" style="object-fit: cover;">
     <source src="/video/propromo.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>

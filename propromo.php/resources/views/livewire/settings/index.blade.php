@@ -1,4 +1,17 @@
-<div class="grid grid-cols-[250px_1fr] gap-6">
-    <livewire:settings.navigation></livewire:settings.navigation>
-    <livewire:settings.content></livewire:settings.content>
+<?php
+
+use Livewire\Attributes\Layout;
+use Livewire\Volt\Component;
+
+new
+#[Layout('components.layouts.settings')]
+class extends Component
+{
+
+}
+
+; ?>
+
+<div>
+
 </div>

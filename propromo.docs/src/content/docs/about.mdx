@@ -1,0 +1,45 @@
+---
+title: What is Propromo?
+description: |
+  "Project Progress Monitoring." Share your project progress with clients. Your client wants to be involved. Propromo makes it possible.
+---
+
+import AsyncIframe from '../../components/AsyncIframe.astro';
+import { LinkButton } from '@astrojs/starlight/components';
+
+## Über Propromo
+
+<a href="/video/propromo.mp4" download>
+  <video width="1920" height="1080" autoplay loop muted controls poster="/img/thumbnail.png" style="object-fit: cover;">
+    <source src="/video/propromo.mp4" type="video/mp4"></source>
+    Your browser does not support the video tag.
+  </video>
+</a>
+
+<div style="display: flex; justify-content: space-between;">
+  <a href="https://propromo.netlify.app/7" target="_blank">Mehr erfahren.</a>
+  <a href="/video/propromo.mp4" download>Video herunterladen.</a>
+</div>
+
+---
+
+### Präsentation
+
+<AsyncIframe>
+  <iframe
+    src="https://propromo.netlify.app"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    allowfullscreen
+    frameborder="0"
+  ></iframe>
+</AsyncIframe>
+
+<LinkButton
+  href="https://propromo.netlify.app"
+  target="_blank"
+  variant="secondary"
+  icon="external"
+  iconPlacement="start"
+>
+  Präsentation in neuem Tab öffnen.
+</LinkButton>

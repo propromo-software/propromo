@@ -1,0 +1,254 @@
+---
+title: Propromo's GitHub SCRUM Template Project V3.
+date: 2025-01-25
+lastUpdated: 2025-01-25
+authors:
+  - jonasfroeller
+tags: [github, scrum-template-project]
+excerpt: Propromo's latest GitHub SCRUM Template Project. What is new in V3? What changed?
+cover:
+  alt: Template Project Preview
+  dark: ../../../assets/blog/propromos-github-scrum-template-project-v3/cover.png
+  light: ../../../assets/blog/propromos-github-scrum-template-project-v3/cover-light.png
+draft: false
+---
+
+import {
+  Tabs,
+  TabItem,
+  LinkButton,
+  Badge,
+} from "@astrojs/starlight/components";
+
+## SCRUM Template Project V3
+
+### Was ist neu?
+
+Template [V2](https://github.com/orgs/propromo-software/projects/13/views/1):
+
+- Tabs wurden verbessert
+- mehr Charts
+- weniger Workflows
+- mehr "Custom fields"
+
+Template [V3](https://github.com/orgs/propromo-software/projects/14/views/1):
+
+- Tabs wurden verbessert
+
+### Alle Versionen
+
+<Tabs>
+  <TabItem label="V1">
+    **Die Version beinhaltet:** <br/>
+
+    Views:
+    * "Current Sprint (all)"
+      * Board: unterteilt nach "Status"
+      * Filter: `sprint:@current -status:Backlog,Updates`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Current Sprint (open)"
+      * Board: unterteilt nach "Status"
+      * Filter: `-status:Done -sprint:@previous`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Reviews (closed)"
+      * Board: unterteilt nach "Sprint"
+      * Filter: `status:Done -sprint:"dieshierwirdniemalseinsprintnamesein..."`
+      * Attribute: Title, Assignees, Status, Labels, Milestone, Sprint
+    * "All In One (open)"
+      * Table
+      * Filter: `-status:Done`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Swimlanes (open)"
+      * Roadmap: Marker für "Milestone" und "Sprint", sortiert nach "Sprint", Datum von "Sprint", Zoom: "Month"
+      * Filter: `-status:Done`
+    * "Last Sprint (open)"
+      * Board: unterteilt nach Status
+      * Filter: `-status:Done sprint:@previous -status:Backlog -status:Updates`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Next Sprint (all)"
+      * Board: unterteilt nach Status
+      * Filter: `sprint:@next`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Issue Void (no sprint)"
+      * Table
+      * Filter: `no:sprint is:issue`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+
+    Insights:
+    * "Status chart" (default) (layout: Column, x: Status, group: None, y: Count of Items),
+    * "Total" (layout: Column, x: Status, group: Labels, y: Count of Items),
+    * "Sprint Review 001" (layout: Bar, x: Labels, group: Assignees, y: Count of Items)
+
+    Workflows:
+    * +Pull Request (not in Sprint (Dependabot or external Contributor)) => Status: "Updates"
+    * ~Issues, Pull Requests (reopened) => Status: "In Progress"
+    * -Issues, Pull Requests (closed) => Status: "Done"
+    * Pull Request (requires review) => Status: "Backlog"
+    * Pull Request (approved) => Status: "In Progress"
+    * Pull Request (merged) => Status: "Done"
+    * Status: Done => close Issue
+
+    Settings:
+    * Status types: "User Stories", "ToDo", "In Progress", "Done", "Backlog", "Updates"
+    * Custom fields: "Sprint" (Iteration: 2 weeks)
+
+    *V1 ist die erste Version des Templates und somit die simpelste.*
+
+    <LinkButton
+      href="https://github.com/orgs/propromo-software/projects/11/views/1"
+      target="_blank"
+      variant="secondary"
+      icon="external"
+      iconPlacement="start"
+    >
+      Template V1 benutzen.
+    </LinkButton>
+
+  </TabItem>
+  <TabItem label="V2">
+    **Die Version beinhaltet:** <br/>
+
+    Views:
+    * "ToDo"
+      * Board: unterteilt nach "Status"
+      * Filter: `sprint:@current -status:Backlog,Updates`
+      * Attribute: Title, Assignees, Status, Labels, Milestone, Story Points, !important, Deadline, Visibility
+    * "Sprints"
+      * Board: unterteilt nach "Sprint"
+      * Filter: `status:Done -sprint:"dieshierwirdniemalseinsprintnamesein..."`
+      * Attribute: Title, Assignees, Status, Labels, Milestone, Sprint
+    * "Tasks"
+      * Table
+      * Filter: `-status:Done`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Gantt"
+      * Roadmap: Marker für "Milestone" und "Sprint" wie auch "Deadline", sortiert nach "Sprint", Datum von "Sprint", Zoom: "Month", Truncated Titles
+      * Filter: `-status:Done`
+    * "Next"
+      * Board: unterteilt nach Status
+      * Filter: `sprint:@next`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Last"
+      * Board: unterteilt nach Status
+      * Filter: `-status:Done sprint:@previous -status:Backlog -status:Updates`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Urgent"
+      * Board: unterteilt nach Status
+      * Filter: `-status:Done -sprint:@previous`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Backlog"
+      * Table
+      * Filter: `no:sprint is:issue`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+
+    Insights:
+    * "Status chart" (default) (layout: Column, x: Status, group: None, y: Count of Items),
+    * "Contributor: John Doe" (layout: Column, x: Status, group: None, y: Count of Items),
+    * "Sprint-Review-01" (layout: Bar, x: Status, group: Assignees, y: Count of Items),
+    * "Sprints: Assignees" (layout: Column, x: Sprint, group: Assignees, y: Count of Items),
+    * "Sprints: Current Sprint" (layout: Column, x: Status, group: None, y: Count of Items),
+    * "Sprints: Last Sprint" (layout: Column, x: Status, group: None, y: Count of Items),
+    * "Sprints: Next Sprint" (layout: Column, x: Status, group: None, y: Count of Items),
+    * "Sprints: Repositories" (layout: Column, x: Sprint, group: Repository, y: Count of Items),
+    * "Total: All Sprints" (layout: Column, x: Sprint, group: Status, y: Count of Items),
+    * "Total: Labels" (layout: Column, x: Status, group: Labels, y: Count of Items),
+    * "Total: Overview" (layout: Line, x: Status, group: Sprint, y: Count of Items)
+
+    Workflows:
+    * +Pull Request (not in Sprint (Dependabot or external Contributor)) => Status: "Updates"
+    * ~Issues, Pull Requests (reopened) => Status: "In Progress"
+    * -Issues, Pull Requests (closed) => Status: "Done"
+    * Pull Request (approved) => Status: "In Progress"
+    * Pull Request (merged) => Status: "Done"
+
+    Settings:
+    * Status types: "User Stories", "ToDo", "In Progress", "Done", "Backlog", "Updates"
+    * Custom fields: "Sprint" (Iteration: 2 weeks), "Story Points" (number), "!important" (text), "Deadline" (date), "Visibility" (single select, nützlich für Propromo)
+
+    <LinkButton
+      href="https://github.com/orgs/propromo-software/projects/13/views/1"
+      target="_blank"
+      variant="secondary"
+      icon="external"
+      iconPlacement="start"
+    >
+      Template V2 benutzen.
+    </LinkButton>
+
+  </TabItem>
+  <TabItem label="V3">
+    **Die Version beinhaltet:** <br/>
+
+    Views:
+    * "ToDo"
+      * Board: unterteilt nach "Status"
+      * Filter: `sprint:@current -status:Backlog,Updates`
+      * Attribute: Title, Assignees, Status, Labels, Milestone, Story Points, !important, Deadline, Visibility, Type, Parent issue, Sub-issue progress
+    * "Sprints"
+      * Board: unterteilt nach "Sprint"
+      * Filter: `status:Done -sprint:"Wa53$c3aBA"`
+      * Attribute: Title, Assignees, Status, Labels, Milestone, Sprint, Type, Story Points
+    * "Task Overview"
+      * Table
+      * Filter: `-status:Done`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Gantt View"
+      * Roadmap: Marker für "Milestone" und "Sprint", sortiert nach "Sprint", Datum von "Sprint", Zoom: "Month", Truncated Titles
+      * Filter: `-status:Done`
+    * "Next Sprint"
+      * Board: unterteilt nach Status
+      * Filter: `sprint:@next`
+      * Attribute: Title, Assignees, Status, Labels, Milestone, Story Points, !important, Deadline, Visibility, Type, Parent issue, Sub-issue progress
+    * "Last Sprint"
+      * Board: unterteilt nach Status
+      * Filter: `-status:Done sprint:@previous -status:Backlog -status:Updates`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Urgent"
+      * Board: unterteilt nach Status
+      * Filter: `-status:Done -sprint:@previous`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+    * "Backlog"
+      * Table
+      * Filter: `no:sprint is:issue`
+      * Attribute: Title, Assignees, Status, Labels, Milestone
+
+    Insights:
+    * "Status chart" (default) (layout: Column, x: Status, group: None, y: Count of Items),
+    * "Contributor: John Doe" (layout: Column, x: Status, group: None, y: Count of Items),
+    * "Sprint-Review-01" (layout: Bar, x: Status, group: Assignees, y: Count of Items),
+    * "Sprints: Assignees" (layout: Column, x: Sprint, group: Assignees, y: Count of Items),
+    * "Sprints: Current Sprint" (layout: Column, x: Status, group: None, y: Count of Items),
+    * "Sprints: Last Sprint" (layout: Column, x: Status, group: None, y: Count of Items),
+    * "Sprints: Next Sprint" (layout: Column, x: Status, group: None, y: Count of Items),
+    * "Sprints: Repositories" (layout: Column, x: Sprint, group: Repository, y: Count of Items),
+    * "Total: All Sprints" (layout: Column, x: Sprint, group: Status, y: Count of Items),
+    * "Total: Labels" (layout: Column, x: Status, group: Labels, y: Count of Items),
+    * "Total: Overview" (layout: Line, x: Status, group: Sprint, y: Count of Items)
+
+    Workflows:
+    * +Pull Request (not in Sprint (Dependabot or external Contributor)) => Status: "Updates"
+    * ~Issues, Pull Requests (reopened) => Status: "In Progress"
+    * -Issues, Pull Requests (closed) => Status: "Done"
+    * Pull Request (approved) => Status: "In Progress"
+    * Pull Request (merged) => Status: "Done"
+
+    Settings:
+    * Status types: "User Stories", "ToDo", "In Progress", "Done", "Backlog", "Updates"
+    * Custom fields: "Sprint" (Iteration: 2 weeks), "Story Points" (number), "!important" (text), "Deadline" (date), "Visibility" (single select, nützlich für Propromo)
+
+    <LinkButton
+      href="https://github.com/orgs/propromo-software/projects/14/views/1"
+      target="_blank"
+      variant="secondary"
+      icon="external"
+      iconPlacement="start"
+    >
+      Template V3 benutzen.
+    </LinkButton>
+
+  </TabItem>
+</Tabs>
+
+### V3 benutzen <Badge text="NEW" variant="note" />
+
+Um das Template zu verwenden, öffne diesen [Link](https://github.com/orgs/propromo-software/projects/14) und klicke auf "Use this template".

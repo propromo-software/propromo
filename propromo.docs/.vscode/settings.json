@@ -2,5 +2,12 @@
   "[markdown]": {
     "editor.formatOnSave": false
   },
-  "cSpell.words": ["Gantt", "github", "jonasfroeller", "Propromo"]
+  "cSpell.words": [
+    "Gantt",
+    "github",
+    "Highcharts",
+    "jonasfroeller",
+    "nbsp",
+    "Propromo"
+  ]
 }

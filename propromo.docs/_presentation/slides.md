@@ -49,7 +49,7 @@ remoteAssets: true
 selectable: false
 colorSchema: auto
 
-favicon: 'https://propromo-software.github.io/corporate-identity/favicons/favicon.png'
+favicon: 'https://propromo-software.github.io/propromo.identity/favicons/favicon.png'
 themeConfig:
   primary: '#0D3269'
   darkGray: '#9A9A9A'
@@ -88,11 +88,17 @@ themeConfig:
       font-style: normal;
       text-transform: uppercase;
   }
+
+  .slidev-layout h1 {
+    margin-left: 0px!important;
+  }
 </style>
 
 # Propromo
 
-> <span class="text-3xl">Project Progress Monitoring</span>
+<blockquote class="border-l-none w-full">
+  <span class="text-3xl">Project Progress Monitoring</span>
+</blockquote>
 
 ---
 src: ./pages/intro.md

@@ -22,7 +22,7 @@
 
 ---
 
-> Your client wants to know what's up. [Propromo](https://it200250.cloud.htl-leonding.ac.at) makes it possible.
+> Your client wants to know what's up. [Propromo](https://propromo.duckdns.org) makes it possible.
 
 This is the monorepo of [Propromo](https://github.com/propromo-software/corporate-identity). It includes all major propromo-projects.
 
@@ -86,8 +86,7 @@ At some point, as a client, the whole process becomes too frustrating, both in t
 -   https://propromo.duckdns.org (points to heroku)
 -   https://propromo.dnset.com (points to heroku)
 -   https://propromo.simulatan.me (points to heroku)
--   https://propromo-d08144c627d3.herokuapp.com (main after stable release, inactive)
--   https://it200250.cloud.htl-leonding.ac.at (main right now)
+-   https://propromo-d08144c627d3.herokuapp.com (main)
 
 ## Design
 

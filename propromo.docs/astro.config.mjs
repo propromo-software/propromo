@@ -12,6 +12,13 @@ const IS_DEV = import.meta.env.DEV;
 
 export default defineConfig({
   site: IS_DEV ? "http://localhost:4321" : "https://propromo-docs.vercel.app",
+  vite: {
+    resolve: {
+      alias: {
+        '@components': '/src/components'
+      }
+    }
+  },
   integrations: [
     starlight({
       title: "Propromo Docs",

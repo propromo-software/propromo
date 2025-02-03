@@ -1,0 +1,49 @@
+---
+import AsyncIframe from '@components/AsyncIframe.astro';
+import { LinkButton } from '@astrojs/starlight/components';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+const { t } = Astro.locals;
+---
+
+<StarlightPage frontmatter={{ title: t`about.title`, description: t`about.description` }}>
+  <h2>{ t`about.video` }</h2>
+
+  <br/>
+
+  <a href="/video/propromo.mp4" download>
+    <video width="1920" height="1080" autoplay loop muted controls poster="/img/thumbnail.png" style="object-fit: cover;">
+      <source src="/video/propromo.mp4" type="video/mp4"></source>
+      Your browser does not support the video tag.
+    </video>
+  </a>
+
+  <div style="display: flex; justify-content: space-between;">
+    <a href="https://propromo.netlify.app/7" target="_blank">{ t`about.learn_more` }</a>
+    <a href="/video/propromo.mp4" download>{ t`about.download_video` }</a>
+  </div>
+
+  <hr />
+
+  <h3>{ t`about.presentation` }</h3>
+
+  <AsyncIframe>
+    <iframe
+      src="https://propromo.netlify.app"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </AsyncIframe>
+
+  <LinkButton
+    href="https://propromo.netlify.app"
+    target="_blank"
+    variant="secondary"
+    icon="external"
+    iconPlacement="start"
+  >
+    { t`about.learn_more` }
+  </LinkButton>
+</StarlightPage>

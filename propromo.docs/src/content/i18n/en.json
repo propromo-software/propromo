@@ -1,2 +1,10 @@
 {
+  "about": {
+    "title": "What is Propromo?",
+    "description": "\"Project Progress Monitoring.\" Share your project progress with clients. Your client wants to be involved. Propromo makes it possible.",
+    "learn_more": "Learn more.",
+    "download_video": "Download video.",
+    "video": "Video",
+    "presentation": "Presentation"
+  }
 }

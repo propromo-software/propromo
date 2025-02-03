@@ -1,6 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
 
-// temporarily redirect .md and .mdx files, because `starlight-blog` doesn't support astro 5 fully yet
+// temporarily redirect .md and .mdx files, because `starlight-blog` doesn't support astro 5 fully yet (doesn't work on vercel. using vercel.json for vercel instead)
 export const onRequest = defineMiddleware(async (context, next) => {
   const url = new URL(context.request.url);
   if (url.pathname.endsWith('.md') || url.pathname.endsWith('.mdx')) {

@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*(.md|.mdx)",
+      "destination": "/:path*"
+    }
+  ]
+}

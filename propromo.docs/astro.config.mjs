@@ -1,4 +1,4 @@
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
@@ -72,7 +72,7 @@ export default defineConfig({
     }),
     alpinejs(),
   ],
-  output: "hybrid",
+  output: "static",
   adapter: vercel({
     webAnalytics: {
       enabled: true,

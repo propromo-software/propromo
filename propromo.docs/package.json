@@ -10,18 +10,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.4.0",
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/starlight": "^0.28.3",
-    "@astrojs/vercel": "^7.5.4",
+    "@astrojs/alpinejs": "^0.4.3",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/starlight": "^0.31.1",
+    "@astrojs/vercel": "^8.0.4",
     "@types/alpinejs": "^3.13.11",
-    "alpinejs": "^3.14.7",
-    "astro": "^4.16.4",
-    "markdown-it-attrs": "^4.3.0",
+    "alpinejs": "^3.14.8",
+    "astro": "^5.2.3",
+    "markdown-it-attrs": "^4.3.1",
     "photoswipe": "^5.4.3",
     "rehype-external-links": "^3.0.0",
     "sharp": "^0.33.3",
-    "starlight-blog": "^0.15.0",
-    "typescript": "^5.4.5"
+    "starlight-blog": "^0.16.1",
+    "typescript": "^5.7.3"
   }
 }

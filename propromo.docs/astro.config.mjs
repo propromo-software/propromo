@@ -19,21 +19,31 @@ export default defineConfig({
       logo: {
         src: "./public/img/favicon.png",
       },
+      defaultLocale: 'root',
+      locales: {
+        root: {
+          label: 'Deutsch',
+          lang: 'de'
+        },
+        en: {
+          label: 'English',
+        },
+      },
       social: {
         github: "https://github.com/propromo-software/propromo",
       },
       sidebar: [
-        { label: "About", link: "/about" },
+        { label: "About", link: "about" },
         {
           label: "Guides",
           items: [
             {
               label: "Joining a Project Monitor",
-              link: "/guides/join-monitor/",
+              link: "guides/join-monitor/",
             },
             {
               label: "Creating a Project Monitor",
-              link: "/guides/create-monitor/",
+              link: "guides/create-monitor/",
             },
             {
               label: "Github",

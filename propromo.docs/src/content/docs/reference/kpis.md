@@ -1,6 +1,6 @@
 ---
 title: KPIs
-description: Propromo - What are "Key Performance Indicators", of agile SCRUM projects?
+description: Propromo - Was sind "Key Performance Indicators" von agilen SCRUM-Projekten?
 ---
 
 ## Key Performance Indicators

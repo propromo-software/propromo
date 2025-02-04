@@ -1,6 +1,6 @@
 ---
 title: EVA
-description: Propromo - What is a "Earned Value Analysis"?
+description: Propromo - Was ist eine "Earned Value Analysis"?
 ---
 
 ## Geplanter Wert (Planned Value, PV)

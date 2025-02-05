@@ -22,7 +22,7 @@ const { t } = Astro.locals;
       <Card title={t`guides.create_monitor.card_title`}>
         <ol>
           <li>{t`guides.create_monitor.opensource.step1`}</li>
-          <li>{t`guides.create_monitor.opensource.step2`}</li>
+          <li set:html={t`guides.create_monitor.opensource.step2`}></li>
         </ol>
       </Card>
 
@@ -31,7 +31,7 @@ const { t } = Astro.locals;
       <p>{t`guides.create_monitor.opensource.copy_url_desc`}</p>
       <p>{t`guides.create_monitor.opensource.url_format`}</p>
       <p>
-        [https://-_your-organization-name-_.atlassian.net/jira/software/projects/-_your-project-name_-/boards/1](https://-_your-organization-name-_.atlassian.net/jira/your-work)
+        <a href="https://-_your-organization-name-_.atlassian.net/jira/your-work">https://-<em>your-organization-name-</em>.atlassian.net/jira/software/projects/-<em>your-project-name</em>-/boards/1</a>
       </p>
 
       <blockquote cite="Propromo">
@@ -40,9 +40,7 @@ const { t } = Astro.locals;
 
       <h2>{t`guides.create_monitor.opensource.visit_title`}</h2>
 
-      <p>
-        {t`guides.create_monitor.opensource.step2`} and paste the url in the input field.
-      </p>
+      <p set:html={t`guides.create_monitor.opensource.visit_desc`}></p>
     </TabItem>
 
     <TabItem label="PrivateDomain">
@@ -50,7 +48,7 @@ const { t } = Astro.locals;
         <ol>
           <li>{t`guides.create_monitor.private.step1`}</li>
           <li>{t`guides.create_monitor.private.step2`}</li>
-          <li>{t`guides.create_monitor.private.step3`}</li>
+          <li set:html={t`guides.create_monitor.private.step3`}></li>
         </ol>
       </Card>
 
@@ -58,7 +56,7 @@ const { t } = Astro.locals;
 
       <p>{t`guides.create_monitor.private.pat_token_desc`}</p>
 
-      <p>{t`guides.create_monitor.private.pat_token_create`} [github.com/settings/tokens](https://github.com/settings/tokens).</p>
+      <p>{t`guides.create_monitor.private.pat_token_create`} <a href="https://github.com/settings/tokens">github.com/settings/tokens</a>.</p>
 
       <p>{t`guides.create_monitor.private.pat_token_scopes`}</p>
 
@@ -72,7 +70,7 @@ const { t } = Astro.locals;
 
       <p>
         {t`guides.create_monitor.private.copy_url_desc`}
-        {t`guides.create_monitor.private.url_format`} [https://github.com/-_users or orgs_\-/\-_login-name_\-/projects/\-_id_\-/views/\-_id_\-](https://github.com/orgs/propromo-software/projects/1/views/6)
+        {t`guides.create_monitor.private.url_format`} <a href="https://github.com/orgs/propromo-software/projects/1/views/6">https://github.com/-<em>users or orgs</em>-/-<em>login-name</em>-/projects/-<em>id</em>-/views/-<em>id</em>-</a>
       </p>
 
       <blockquote cite="Propromo">
@@ -82,7 +80,7 @@ const { t } = Astro.locals;
 
       <h2>{t`guides.create_monitor.private.visit_title`}</h2>
 
-      <p>{t`guides.create_monitor.private.visit_desc`}</p>
+      <p set:html={t`guides.create_monitor.private.visit_desc`}></p>
     </TabItem>
   </Tabs>
 </StarlightPage>

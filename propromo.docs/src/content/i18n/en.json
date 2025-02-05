@@ -17,18 +17,18 @@
       "card_title": "Creating a monitor is easy!",
       "opensource": {
         "step1": "Copy your project url.",
-        "step2": "Visit [create-monitor](https://propromo.duckdns.org/create-monitor)",
+        "step2": "Visit <a href=\"https://propromo.duckdns.org/create-monitor\">create-monitor</a>",
         "copy_url_title": "1. Copy the project url",
         "copy_url_desc": "Go to the project dashboard, you want to display, and copy it's url.",
         "url_format": "The url has the following format:",
         "url_note": "The board number doesn't matter, propromo does only fetch the basic data, not the board information.",
         "visit_title": "2. Visit create-monitor",
-        "visit_desc": "Visit [create-monitor](https://propromo.duckdns.org/create-monitor) and paste the url in the input field."
+        "visit_desc": "Visit <a href=\"https://propromo.duckdns.org/create-monitor\">create-monitor</a> and paste the url in the input field."
       },
       "private": {
         "step1": "Create a new github pat token.",
         "step2": "Copy your project url.",
-        "step3": "Visit [create-monitor](https://propromo.duckdns.org/create-monitor)",
+        "step3": "Visit <a href=\"https://propromo.duckdns.org/create-monitor\">create-monitor</a>",
         "pat_token_title": "1. Create a new github pat token",
         "pat_token_desc": "If you want to create a monitor and the project you want to display is private, you need a Github pat token with read scopes first.",
         "pat_token_create": "You can create such token at",
@@ -40,7 +40,7 @@
         "url_note_1": "The view part does not matter, propromo can only fetch the milestones and issues, not the views.",
         "url_note_2": "(version `2022-11-28` (latest) of the github-rest-api does not support that).",
         "visit_title": "3. Visit create-monitor",
-        "visit_desc": "Visit [create-monitor](https://propromo.duckdns.org/create-monitor) and paste the url and the token in the input fields."
+        "visit_desc": "Visit <a href=\"https://propromo.duckdns.org/create-monitor\">create-monitor</a> and paste the url and the token in the input fields."
       }
     },
     "join_monitor": {
@@ -49,7 +49,7 @@
       "main_text": "If you want to join a monitor, you need it's `monitor_id` first. The id is either in form of a link or a long string.",
       "examples_title": "Examples:",
       "monitor_id_title": "`monitor_id`",
-      "monitor_id_desc": "Paste it in the input field at [propromo.duckdns.org](https://propromo.duckdns.org) and hit enter, or press the join button. Alternatively you could join the project at [propromo.duckdns.org/monitors/join](propromo.duckdns.org/monitors/join).",
+      "monitor_id_desc": "Paste it in the input field at <a href=\"https://propromo.duckdns.org\">propromo.duckdns.org</a> and hit enter, or press the join button. Alternatively you could join the project at <a href=\"propromo.duckdns.org/monitors/join\">propromo.duckdns.org/monitors/join</a>.",
       "link_title": "Link",
       "link_desc": "Just open the link in your web-browser of choice."
     }

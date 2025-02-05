@@ -1,14 +1,14 @@
 ---
-title: Creating an Jira Monitor
-description: How to create an Jira (Atlassian) Software Project Monitor
+title: Erstellen eines Jira-Monitors
+description: Wie man einen Jira (Atlassian) Software-Projekt-Monitor erstellt
 ---
 
 import { Steps } from "@astrojs/starlight/components";
-import AsyncIframe from '../../../../components/AsyncIframe.astro';
+import AsyncIframe from '@components/AsyncIframe.astro';
 
 <Steps>
 
-1. Create a new jira api token
+1. Erstelle einen neuen Jira API-Token
 
     <AsyncIframe>
       <iframe
@@ -19,13 +19,13 @@ import AsyncIframe from '../../../../components/AsyncIframe.astro';
       ></iframe>
     </AsyncIframe>
 
-2. Copy a project url from `https://<your-organization-name>.atlassian.net/jira/your-work`.
+2. Kopiere eine Projekt-URL von `https://<your-organization-name>.atlassian.net/jira/your-work`.
 
-3. Visit [create-monitor](https://propromo.duckdns.org/create-monitor) and select a project.
+3. Besuche [create-monitor](https://propromo.duckdns.org/create-monitor) und wähle ein Projekt aus.
 
-4. Copy the URL, that you are redirected to.  
-   The path should look like this: `/jira/software/projects/<your-project-name>/boards/1`.  
-   And paste it in the input fields together with your generated token.  
-   _(The board number doesn't matter)_
+4. Kopiere die URL, zu der du weitergeleitet wirst.  
+   Der Pfad sollte so aussehen: `/jira/software/projects/<your-project-name>/boards/1`.  
+   Füge diese zusammen mit deinem generierten Token in die Eingabefelder ein.  
+   _(Die Board-Nummer spielt keine Rolle)_
 
 </Steps>

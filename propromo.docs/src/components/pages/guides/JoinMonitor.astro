@@ -1,0 +1,24 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+const { t } = Astro.locals;
+---
+
+<StarlightPage frontmatter={{ title: t`guides.join_monitor.title`, description: t`guides.join_monitor.description` }}>
+  <p>{t`guides.join_monitor.main_text`}</p>
+
+  <p><strong><b>{t`guides.join_monitor.examples_title`}</b></strong></p>
+
+  <ul>
+    <li>ID: $2y$12$yS.ALofurRO3lc5oC6QmSuxzKwsYTPO.s67YaqVxkzKQS.K5A584C</li>
+    <li>URL: <a href="propromo.duckdns.org/monitors/join/$2y$12$yS.ALofurRO3lc5oC6QmSuxzKwsYTPO.s67YaqVxkzKQS.K5A584C">propromo.duckdns.org/monitors/join/$2y$12$yS...</a></li>
+  </ul>
+
+  <h2>{t`guides.join_monitor.monitor_id_title`}</h2>
+
+  <p>{t`guides.join_monitor.monitor_id_desc`}</p>
+
+  <h2>{t`guides.join_monitor.link_title`}</h2>
+
+  <p>{t`guides.join_monitor.link_desc`}</p>
+</StarlightPage>

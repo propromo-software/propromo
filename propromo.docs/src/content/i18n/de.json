@@ -6,5 +6,52 @@
     "download_video": "Video herunterladen.",
     "video": "Video",
     "presentation": "Präsentation"
+  },
+  "guides": {
+    "create_monitor": {
+      "title": "Einführung",
+      "description": "Monitor erstellen",
+      "aside_text": "Diese Anleitung ist für Github-Projekte (V2).",
+      "aside_link_text": "Wenn Sie einen Jira-Software-Projektmonitor erstellen möchten, folgen Sie dieser Anleitung.",
+      "easy_title": "Einen Monitor zu erstellen ist einfach.",
+      "card_title": "Einen Monitor zu erstellen ist einfach!",
+      "opensource": {
+        "step1": "Kopieren Sie Ihre Projekt-URL.",
+        "step2": "Besuchen Sie create-monitor",
+        "copy_url_title": "1. Kopieren Sie die Projekt-URL",
+        "copy_url_desc": "Gehen Sie zum Projekt-Dashboard, das Sie anzeigen möchten, und kopieren Sie dessen URL.",
+        "url_format": "Die URL hat das folgende Format:",
+        "url_note": "Die Board-Nummer spielt keine Rolle, propromo ruft nur die Grunddaten ab, nicht die Board-Informationen.",
+        "visit_title": "2. Besuchen Sie create-monitor",
+        "visit_desc": "Besuchen Sie create-monitor und fügen Sie die URL in das Eingabefeld ein."
+      },
+      "private": {
+        "step1": "Erstellen Sie ein neues Github PAT Token.",
+        "step2": "Kopieren Sie Ihre Projekt-URL.",
+        "step3": "Besuchen Sie create-monitor",
+        "pat_token_title": "1. Erstellen Sie ein neues Github PAT Token",
+        "pat_token_desc": "Wenn Sie einen Monitor erstellen möchten und das anzuzeigende Projekt privat ist, benötigen Sie zuerst ein Github PAT Token mit Leseberechtigungen.",
+        "pat_token_create": "Sie können ein solches Token erstellen unter",
+        "pat_token_scopes": "Dies sind die benötigten Berechtigungen, die Sie auswählen müssen (_nur Lesezugriff_ erforderlich, kein Schreibzugriff):",
+        "pat_token_note": "Hinweis: Wenn das Projekt öffentlich ist, benötigen Sie nur die URL des Projekts.",
+        "copy_url_title": "2. Kopieren Sie die Projekt-URL",
+        "copy_url_desc": "Gehen Sie zum Projekt-Dashboard, das Sie anzeigen möchten, und kopieren Sie dessen URL.",
+        "url_format": "Die URL hat das folgende Format:",
+        "url_note_1": "Der View-Teil spielt keine Rolle, propromo kann nur die Meilensteine und Issues abrufen, nicht die Views.",
+        "url_note_2": "(Version `2022-11-28` (aktuell) der github-rest-api unterstützt das nicht).",
+        "visit_title": "3. Besuchen Sie create-monitor",
+        "visit_desc": "Besuchen Sie create-monitor und fügen Sie die URL und das Token in die Eingabefelder ein."
+      }
+    },
+    "join_monitor": {
+      "title": "Einführung",
+      "description": "Einem Monitor beitreten",
+      "main_text": "Wenn Sie einem Monitor beitreten möchten, benötigen Sie zuerst dessen `monitor_id`. Die ID liegt entweder in Form eines Links oder einer langen Zeichenkette vor.",
+      "examples_title": "Beispiele:",
+      "monitor_id_title": "`monitor_id`",
+      "monitor_id_desc": "Fügen Sie sie in das Eingabefeld auf [propromo.duckdns.org](https://propromo.duckdns.org) ein und drücken Sie Enter oder den Beitritts-Button. Alternativ können Sie dem Projekt unter [propromo.duckdns.org/monitors/join](propromo.duckdns.org/monitors/join) beitreten.",
+      "link_title": "Link",
+      "link_desc": "Öffnen Sie einfach den Link in Ihrem bevorzugten Webbrowser."
+    }
   }
 }

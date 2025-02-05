@@ -1,0 +1,88 @@
+---
+import { Aside } from "@astrojs/starlight/components";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { Card } from "@astrojs/starlight/components";
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import PhotoSwipe from "@components/PhotoswipeImage.astro";
+
+const { t } = Astro.locals;
+---
+
+<StarlightPage frontmatter={{ title: t`guides.create_monitor.title`, description: t`guides.create_monitor.description` }}>
+  <Aside>
+    {t`guides.create_monitor.aside_text`}
+    <br />
+    <a href="/guides/jira/creating-a-jira-software-project-monitor">{t`guides.create_monitor.aside_link_text`}</a>
+  </Aside>
+
+  <h2>{t`guides.create_monitor.easy_title`}</h2>
+
+  <Tabs>
+    <TabItem label="OpenSource">
+      <Card title={t`guides.create_monitor.card_title`}>
+        <ol>
+          <li>{t`guides.create_monitor.opensource.step1`}</li>
+          <li>{t`guides.create_monitor.opensource.step2`}</li>
+        </ol>
+      </Card>
+
+      <h2>{t`guides.create_monitor.opensource.copy_url_title`}</h2>
+
+      <p>{t`guides.create_monitor.opensource.copy_url_desc`}</p>
+      <p>{t`guides.create_monitor.opensource.url_format`}</p>
+      <p>
+        [https://-_your-organization-name-_.atlassian.net/jira/software/projects/-_your-project-name_-/boards/1](https://-_your-organization-name-_.atlassian.net/jira/your-work)
+      </p>
+
+      <blockquote cite="Propromo">
+        {t`guides.create_monitor.opensource.url_note`}
+      </blockquote>
+
+      <h2>{t`guides.create_monitor.opensource.visit_title`}</h2>
+
+      <p>
+        {t`guides.create_monitor.opensource.step2`} and paste the url in the input field.
+      </p>
+    </TabItem>
+
+    <TabItem label="PrivateDomain">
+      <Card title={t`guides.create_monitor.card_title`}>
+        <ol>
+          <li>{t`guides.create_monitor.private.step1`}</li>
+          <li>{t`guides.create_monitor.private.step2`}</li>
+          <li>{t`guides.create_monitor.private.step3`}</li>
+        </ol>
+      </Card>
+
+      <h2>{t`guides.create_monitor.private.pat_token_title`}</h2>
+
+      <p>{t`guides.create_monitor.private.pat_token_desc`}</p>
+
+      <p>{t`guides.create_monitor.private.pat_token_create`} [github.com/settings/tokens](https://github.com/settings/tokens).</p>
+
+      <p>{t`guides.create_monitor.private.pat_token_scopes`}</p>
+
+      <PhotoSwipe imageFolder="create-monitor" />      
+
+      <blockquote cite="Propromo">
+        {t`guides.create_monitor.private.pat_token_note`}
+      </blockquote>
+
+      <h2>{t`guides.create_monitor.private.copy_url_title`}</h2>
+
+      <p>
+        {t`guides.create_monitor.private.copy_url_desc`}
+        {t`guides.create_monitor.private.url_format`} [https://github.com/-_users or orgs_\-/\-_login-name_\-/projects/\-_id_\-/views/\-_id_\-](https://github.com/orgs/propromo-software/projects/1/views/6)
+      </p>
+
+      <blockquote cite="Propromo">
+        {t`guides.create_monitor.private.url_note_1`} <br />
+        {t`guides.create_monitor.private.url_note_2`}
+      </blockquote>
+
+      <h2>{t`guides.create_monitor.private.visit_title`}</h2>
+
+      <p>{t`guides.create_monitor.private.visit_desc`}</p>
+    </TabItem>
+  </Tabs>
+</StarlightPage>

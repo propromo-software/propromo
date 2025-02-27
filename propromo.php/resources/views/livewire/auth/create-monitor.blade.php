@@ -173,11 +173,3 @@ new class extends Component {
         </script>
     </div>
 </div>
-
-<!-- <div class="relative mt-2 w-full aspect-video">
-    <iframe 
-        class="absolute top-0 left-0 w-full h-full rounded-lg"
-        src="https://player.vimeo.com/video/953693369?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&background=1&responsive=1" 
-        frameborder="0" 
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write" 
-        title="Propromo P

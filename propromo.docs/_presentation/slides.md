@@ -101,6 +101,11 @@ themeConfig:
 </blockquote>
 
 ---
+src: ./pages/who-are-we.md
+hide: false
+---
+
+---
 src: ./pages/intro.md
 hide: false
 ---

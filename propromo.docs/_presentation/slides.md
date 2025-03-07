@@ -136,11 +136,16 @@ hide: false
 ---
 
 ---
-src: ./pages/video.md
+src: ./pages/demo.md
 hide: false
 ---
 
 ---
 src: ./pages/thanks.md
+hide: false
+---
+
+---
+src: ./pages/video.md
 hide: false
 ---

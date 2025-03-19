@@ -58,7 +58,7 @@ const { t } = Astro.locals;
 
       <p>{t`guides.create_monitor.private.pat_token_create`} <a href="https://github.com/settings/tokens">github.com/settings/tokens</a>.</p>
 
-      <p>{t`guides.create_monitor.private.pat_token_scopes`}</p>
+      <p set:html={t`guides.create_monitor.private.pat_token_scopes`}></p>
 
       <PhotoSwipe imageFolder="create-monitor" />      
 
@@ -75,7 +75,7 @@ const { t } = Astro.locals;
 
       <blockquote cite="Propromo">
         {t`guides.create_monitor.private.url_note_1`} <br />
-        {t`guides.create_monitor.private.url_note_2`}
+        <span set:html={t`guides.create_monitor.private.url_note_2`}></span>
       </blockquote>
 
       <h2>{t`guides.create_monitor.private.visit_title`}</h2>

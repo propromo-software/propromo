@@ -19,7 +19,7 @@ level: 3
      * Sprints & Meilensteine pro Zeiteinheit
 
 3. **Projektfortschritt**
-   * Prozentsatz der abgeschlossenen- und ausstehenden Issues (, Meilensteine & Sprints).
+   * Prozentsatz der abgeschlossenen und ausstehenden Issues (eventuell Meilensteine & Sprints).
 
 <style scoped>
     p {

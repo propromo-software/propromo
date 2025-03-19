@@ -32,13 +32,13 @@
         "pat_token_title": "1. Erstellen Sie ein neues Github PAT Token",
         "pat_token_desc": "Wenn Sie einen Monitor erstellen möchten und das anzuzeigende Projekt privat ist, benötigen Sie zuerst ein Github PAT Token mit Leseberechtigungen.",
         "pat_token_create": "Sie können ein solches Token erstellen unter",
-        "pat_token_scopes": "Dies sind die benötigten Berechtigungen, die Sie auswählen müssen (_nur Lesezugriff_ erforderlich, kein Schreibzugriff):",
+        "pat_token_scopes": "Dies sind die benötigten Berechtigungen, die Sie auswählen müssen (<em>nur Lesezugriff</em> erforderlich, kein Schreibzugriff):",
         "pat_token_note": "Hinweis: Wenn das Projekt öffentlich ist, benötigen Sie nur die URL des Projekts.",
         "copy_url_title": "2. Kopieren Sie die Projekt-URL",
         "copy_url_desc": "Gehen Sie zum Projekt-Dashboard, das Sie anzeigen möchten, und kopieren Sie dessen URL.",
         "url_format": "Die URL hat das folgende Format:",
         "url_note_1": "Der View-Teil spielt keine Rolle, propromo kann nur die Meilensteine und Issues abrufen, nicht die Views.",
-        "url_note_2": "(Version `2022-11-28` (aktuell) der github-rest-api unterstützt das nicht).",
+        "url_note_2": "(Version <code>2022-11-28</code> (aktuell) der github-rest-api unterstützt das nicht).",
         "visit_title": "3. Besuchen Sie create-monitor",
         "visit_desc": "Besuchen Sie <a href=\"https://propromo.duckdns.org/create-monitor\">create-monitor</a> und fügen Sie die URL und das Token in die Eingabefelder ein."
       }
@@ -46,9 +46,9 @@
     "join_monitor": {
       "title": "Einführung",
       "description": "Einem Monitor beitreten",
-      "main_text": "Wenn Sie einem Monitor beitreten möchten, benötigen Sie zuerst dessen `monitor_id`. Die ID liegt entweder in Form eines Links oder einer langen Zeichenkette vor.",
+      "main_text": "Wenn Sie einem Monitor beitreten möchten, benötigen Sie zuerst dessen <code>monitor_id</code>. Die ID liegt entweder in Form eines Links oder einer langen Zeichenkette vor.",
       "examples_title": "Beispiele:",
-      "monitor_id_title": "`monitor_id`",
+      "monitor_id_title": "<code>monitor_id</code>",
       "monitor_id_desc": "Fügen Sie sie in das Eingabefeld auf <a href=\"https://propromo.duckdns.org\">propromo.duckdns.org</a> ein und drücken Sie Enter oder den Beitritts-Button. Alternativ können Sie dem Projekt unter <a href=\"propromo.duckdns.org/monitors/join\">propromo.duckdns.org/monitors/join</a> beitreten.",
       "link_title": "Link",
       "link_desc": "Öffnen Sie einfach den Link in Ihrem bevorzugten Webbrowser."

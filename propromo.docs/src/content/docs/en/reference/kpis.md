@@ -27,4 +27,4 @@ description: Propromo - What are "Key Performance Indicators" of agile SCRUM pro
 ---
 
 3. **Project Progress** - How far has the entire project progressed?
-   * Percentage of completed and pending issues (, milestones & sprints).
+   * Percentage of completed and pending issues (possibly milestones & sprints).
